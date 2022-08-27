@@ -73,12 +73,25 @@ if(includeSpecChar){
 //2. loop for the 'length' times, for each interation, 
 //grab a random char and append to an accumulator
 
+//we use let because we need to be able to update the declared value of password
+//password starts blank and is then added to per the loop
+let password = "";
+
+//for = for loop = loop per the defined parameters in the brackets
+//From the 3 defined parameters in the brackets:
+//1. Initiates the loop at 0. We initially define ii as 0
+//2. says to keep looping so long as we have looped less times than the length the user defined.
+//3. ii++ will add 1 to ii after each loop, so that the loop will stop once ii is greater than the length of the password defined by the user. 
+
+for (let ii=0; ii<length; ii++){
+  const randomChar = charset[Math.floor(Math.random()*charset.length)]
+  password = password +randomChar;
+}
+
+//Returns the password
+return password;
 
 
-//bank of chars
-//abcdeABCDE12345
-//length: 6
-//loop
 
 //pw - - set of random characters
 
