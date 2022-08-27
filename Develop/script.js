@@ -17,7 +17,17 @@ function generatePassword(){
 
   console.log(length); 
 
+//What if the user enters characters other than numbers?
+if(isNaN(length)){
+  alert("Please enter a number between 8 - 128.");
+  return;
+}
 
+//We will stop people from entering numbers less than 8 or more than 128.
+if (length < 8 || length > 128){
+  alert("Enter a number between 1 - 128.");
+  return;
+}
 
 //ask if want to include:
 //uppercase
@@ -29,9 +39,36 @@ const includeNumbers = confirm("Include numbers in your password?");
 //special symbols
 const includeSpecChar = confirm("Include $pec!al char@cter$ in your password?");
 
+//Ensure that the user accepts at least one of the above criteria
+
+if(!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSpecChar){
+  alert("Please choose at least one character option.");
+  return;
+}
+
+
 //generate password based on the criterias selected and the password length
 
-//1. create the charset based on the criterias
+//1. create the charset based on the criteria
+//first line is the charset starting with noting in it, until you add the options selected by the user
+let charset = "";
+
+
+if(includeUpperCase){
+  charset = charset + "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+}
+
+if(includeLowerCase){
+  charset = charset + "abcdefghijklmnopqrstuvwxyz";
+}
+
+if(includeNumbers){
+  charset = charset + "0123456789";
+}
+
+if(includeSpecChar){
+  charset = charset + "!@#$%^&*()_+<>";
+}
 
 //2. loop for the 'length' times, for each interation, 
 //grab a random char and append to an accumulator
