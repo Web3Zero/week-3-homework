@@ -10,14 +10,24 @@ const generateBtn = document.querySelector("#generate");
 
 function generatePassword(){
 
+
   //Ask user how long is the password
+
+  const length = Number(prompt("Enter Password Length (8 - 128 characters)"));
+
+  console.log(length); 
+
 
 
 //ask if want to include:
 //uppercase
+const includeUpperCase = confirm("Include UPPERCASE characters?");
 //lowercase
+const includeLowerCase = confirm("Include lowercase characters?");
 //number
+const includeNumbers = confirm("Include numbers in your password?");
 //special symbols
+const includeSpecChar = confirm("Include $pec!al char@cter$ in your password?");
 
 //generate password based on the criterias selected and the password length
 
